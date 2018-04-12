@@ -1,0 +1,11 @@
+#imageLogo {
+  margin: 0 auto;
+  padding: 5px;
+  width:300px;
+  height: 220px;
+  vertical-align: middle;
+}
+
+#title-logo {
+  font-weight: bold;
+}

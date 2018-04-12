@@ -1,0 +1,11 @@
+
+<h4 mat-dialog-title>{{ title }}</h4>
+
+<mat-dialog-content>
+    <p>{{ message }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions class="right">
+    <button mat-dialog-close class="btn {{main.buttonDefaultColor}} btn-confirm"><i class="material-icons center">close</i> Cancelar</button>
+    <button [mat-dialog-close]="true" class="btn {{main.buttonDangerColor}} btn-confirm"><i class="material-icons center">delete_forever</i> Confirmar</button>
+</mat-dialog-actions>

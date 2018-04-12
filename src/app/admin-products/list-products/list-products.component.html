@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col l12 m12 s12">
+        <div class="row">
+            <div class="card">
+                <div class="row">
+                    <div class="row {{main.navTitle}} ">
+                        <div class="col l12 m12 s12">
+                            <span class="card-title left-aling">Lista de productos</span>
+                            <a class="modal-trigger btn {{main.buttonDefaultColor}} right"><i class="material-icons left">import_export</i>Exportar</a>
+                        </div>
+                    </div>
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="input-field col l4 m4 s4 right">
+                                <input name="filter" type="text" (keyup)="applyFilter($event.target.value)">
+                                <label for="filter">Buscar</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col l12 m12 s12 ">
+                                <mat-table #table [dataSource]="dataSource">
+
+                                    <ng-container matColumnDef="name">
+                                        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+                                        <mat-cell *matCellDef="let item"> {{item.name}} </mat-cell>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="description">
+                                        <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+                                        <mat-cell *matCellDef="let item"> {{item.description}} </mat-cell>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="amount">
+                                        <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+                                        <mat-cell *matCellDef="let item"> {{item.amount | currency}} </mat-cell>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="action">
+                                        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+                                        <mat-cell *matCellDef="let item">
+                                            <a (click)="onDeleteClicked(item)" class="btn {{main.buttonDangerColor}}"><i class="material-icons center">delete_forever</i></a>
+                                        </mat-cell>
+                                    </ng-container>
+
+                                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+                                </mat-table>
+
+                                <mat-paginator [pageSize]="10" [pageSizeOptions]="[5,10,50,100]"></mat-paginator>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end modal to products-->
+
+<!-- <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+  <thead>
+  <tr>
+      <th style="width: 20%">
+          <mfDefaultSorter by="name">Nombre</mfDefaultSorter>
+      </th>
+      <th style="width: 50%">
+          <mfDefaultSorter by="description">Descripción</mfDefaultSorter>
+      </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+      <td>{{product.name}}</td>
+      <td>{{product.description}}</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+      <td colspan="4">
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+      </td>
+  </tr>
+  </tfoot>
+</table> -->
