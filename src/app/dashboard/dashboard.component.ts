@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PRODUCTS } from '../mock-products';
+
+import { Product } from '../product';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+    products = PRODUCTS;
 
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }

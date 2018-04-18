@@ -31,12 +31,16 @@ import { AppRoutingModule } from './/app-routing.module';
 //Import component
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DetailComponent } from './detail/detail.component';
+
+import { ProductsService }          from './products.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +59,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   providers: [
       DataService,
+      ProductsService,
       Title
   ],
   bootstrap: [AppComponent]
